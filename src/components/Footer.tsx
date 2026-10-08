@@ -69,19 +69,19 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3.5">
               {!logoError ? (
-                <div className="relative h-11 sm:h-12 w-auto flex items-center">
+                <div className="bg-white p-1.5 px-2.5 rounded-lg shadow-sm border border-white/20 flex items-center justify-center">
                   <Image
                     src="/images/logo.png"
                     alt="Bait Al Ameer Logo"
-                    width={180}
-                    height={48}
-                    className="h-11 sm:h-12 w-auto object-contain brightness-110 drop-shadow-sm"
+                    width={160}
+                    height={44}
+                    className="h-9 sm:h-10 w-auto object-contain"
                     onError={() => setLogoError(true)}
                   />
                 </div>
               ) : (
-                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center font-extrabold text-white text-lg shadow">
-                  BA
+                <div className="bg-white p-1.5 px-2.5 rounded-lg shadow-sm border border-white/20 flex items-center justify-center">
+                  <span className="text-navy-900 font-extrabold text-base tracking-wider">BA</span>
                 </div>
               )}
               <div className="flex flex-col justify-center">

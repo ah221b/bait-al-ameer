@@ -37,20 +37,20 @@ export default function Header() {
         {/* Brand Logo & Name */}
         <a href="#home" className="flex items-center gap-3.5 group shrink-0">
           {!logoError ? (
-            <div className="relative h-12 sm:h-14 w-auto flex items-center">
+            <div className="bg-white/95 backdrop-blur-sm p-1.5 px-2.5 rounded-lg shadow-sm border border-white/20 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
               <Image
                 src="/images/logo.png"
                 alt="Bait Al Ameer Logo"
-                width={200}
-                height={56}
+                width={160}
+                height={40}
                 priority
-                className="h-12 sm:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
+                className="h-9 md:h-10 w-auto object-contain"
                 onError={() => setLogoError(true)}
               />
             </div>
           ) : (
-            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
-              <span className="text-white font-extrabold text-xl tracking-wider">BA</span>
+            <div className="bg-white/95 backdrop-blur-sm p-1.5 px-2.5 rounded-lg shadow-sm border border-white/20 flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
+              <span className="text-navy-900 font-extrabold text-lg tracking-wider">BA</span>
             </div>
           )}
           <div className="flex flex-col justify-center">

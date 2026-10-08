@@ -49,20 +49,22 @@ export default function Hero() {
       <div className="container-x px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-5xl mx-auto">
         {/* Prominent Company Hero Logo */}
         {!logoError ? (
-          <div className="flex justify-center mb-6">
-            <Image
-              src="/images/logo.png"
-              alt="Bait Al Ameer Official Logo"
-              width={350}
-              height={112}
-              priority
-              className="h-24 md:h-28 w-auto mx-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
-              onError={() => setLogoError(true)}
-            />
+          <div className="flex justify-center">
+            <div className="bg-white p-3.5 md:p-4 rounded-2xl shadow-xl inline-flex items-center justify-center mb-6 border border-gray-100 max-w-xs mx-auto hover:shadow-2xl transition-all duration-300">
+              <Image
+                src="/images/logo.png"
+                alt="Bait Al Ameer Official Logo"
+                width={300}
+                height={96}
+                priority
+                className="h-20 md:h-24 w-auto object-contain"
+                onError={() => setLogoError(true)}
+              />
+            </div>
           </div>
         ) : (
-          <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl mb-6 shadow-xl">
-            <span className="text-white font-black text-2xl md:text-3xl tracking-widest text-accent-light">BA</span>
+          <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-white p-3.5 rounded-2xl mb-6 shadow-xl border border-gray-100">
+            <span className="text-navy-900 font-black text-2xl md:text-3xl tracking-widest">BA</span>
           </div>
         )}
 
