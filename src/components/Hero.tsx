@@ -8,6 +8,7 @@ import { FaWhatsapp, FaArrowDown, FaCheckCircle, FaShieldAlt } from "react-icons
 export default function Hero() {
   const { t, isRTL } = useLanguage();
   const [bgError, setBgError] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   const valueProps = [
     { title: t.hero.badge1 },
@@ -46,6 +47,25 @@ export default function Hero() {
       </div>
 
       <div className="container-x px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-5xl mx-auto">
+        {/* Prominent Company Hero Logo */}
+        {!logoError ? (
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/images/logo.png"
+              alt="Bait Al Ameer Official Logo"
+              width={350}
+              height={112}
+              priority
+              className="h-24 md:h-28 w-auto mx-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+              onError={() => setLogoError(true)}
+            />
+          </div>
+        ) : (
+          <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl mb-6 shadow-xl">
+            <span className="text-white font-black text-2xl md:text-3xl tracking-widest text-accent-light">BA</span>
+          </div>
+        )}
+
         {/* Top Location Pill */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/90 text-xs sm:text-sm font-medium mb-8">
           <span className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse" />

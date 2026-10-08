@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   FaPhoneAlt,
@@ -12,6 +14,7 @@ import {
 
 export default function Footer() {
   const { t, isRTL } = useLanguage();
+  const [logoError, setLogoError] = useState(false);
 
   const navLinks = [
     { label: t.nav.home, href: "#home" },
@@ -64,15 +67,28 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Column 1: Brand & Profile */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center font-extrabold text-white text-lg">
-                BA
-              </div>
-              <div>
+            <div className="flex items-center gap-3.5">
+              {!logoError ? (
+                <div className="relative h-11 sm:h-12 w-auto flex items-center">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Bait Al Ameer Logo"
+                    width={180}
+                    height={48}
+                    className="h-11 sm:h-12 w-auto object-contain brightness-110 drop-shadow-sm"
+                    onError={() => setLogoError(true)}
+                  />
+                </div>
+              ) : (
+                <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center font-extrabold text-white text-lg shadow">
+                  BA
+                </div>
+              )}
+              <div className="flex flex-col justify-center">
                 <p className="font-extrabold text-base tracking-tight leading-tight">
                   {isRTL ? "بيت الأمير" : "BAIT AL AMEER"}
                 </p>
-                <p className="text-steel-400 text-xs">
+                <p className="text-steel-400 text-xs mt-0.5 font-medium">
                   {isRTL ? "لتجارة أدوات البناء ذ.م.م" : "Bldg. Tools Tr. L.L.C"}
                 </p>
               </div>

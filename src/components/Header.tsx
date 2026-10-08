@@ -36,24 +36,28 @@ export default function Header() {
       <div className="container-x flex items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo & Name */}
         <a href="#home" className="flex items-center gap-3.5 group shrink-0">
-          <div className="relative w-11 h-11 bg-accent rounded-lg flex items-center justify-center overflow-hidden shadow-md group-hover:scale-105 transition-transform duration-200">
-            {!logoError ? (
+          {!logoError ? (
+            <div className="relative h-12 sm:h-14 w-auto flex items-center">
               <Image
                 src="/images/logo.png"
                 alt="Bait Al Ameer Logo"
-                fill
-                className="object-contain p-1"
+                width={200}
+                height={56}
+                priority
+                className="h-12 sm:h-14 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
                 onError={() => setLogoError(true)}
               />
-            ) : (
+            </div>
+          ) : (
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-accent rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
               <span className="text-white font-extrabold text-xl tracking-wider">BA</span>
-            )}
-          </div>
-          <div>
+            </div>
+          )}
+          <div className="flex flex-col justify-center">
             <p className="text-white font-bold text-base sm:text-lg leading-tight tracking-tight">
               {isRTL ? "بيت الأمير" : "BAIT AL AMEER"}
             </p>
-            <p className="text-steel-400 text-xs sm:text-[13px] leading-tight font-medium">
+            <p className="text-steel-400 text-xs sm:text-[13px] leading-tight font-medium mt-0.5">
               {isRTL ? "لتجارة أدوات البناء ذ.م.م" : "Bldg. Tools Tr. L.L.C"}
             </p>
           </div>
